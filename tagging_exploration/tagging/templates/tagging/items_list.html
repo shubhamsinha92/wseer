@@ -1,0 +1,31 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+</head>
+
+<body>
+
+<h1>Items</h1>
+
+{% if object_list %}
+	<ul>
+	{% for item in object_list %}
+	    <li>
+	      {{ item.item_name }}
+	      <form method="POST"
+	                action="/Items/{{ item.id }}/">
+	        <input type="submit"
+	                  name="_method"
+	                  value="delete" />
+	      </form>
+	    </li>
+	{% endfor %}
+	</ul>
+
+{% else %}
+    <p>No items available.</p>
+{% endif %}
+
+</body>
+</html>
